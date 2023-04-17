@@ -9,6 +9,7 @@ import { MenuBarComponent } from './core/components/shared/menu-bar/menu-bar.com
 import { PersonneComponent } from './pages/personne/personne.component';
 import { PersonneListComponent } from './pages/personne/personne-list/personne-list.component';
 import { PersonneFormComponent } from './pages/personne/personne-form/personne-form.component';
+import { AcceuilComponent } from './pages/acceuil/acceuil.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PersonneFormComponent } from './pages/personne/personne-form/personne-f
     MenuBarComponent,
     PersonneComponent,
     PersonneListComponent,
-    PersonneFormComponent
+    PersonneFormComponent,
+    AcceuilComponent
   ],
   imports: [
     AppRoutingModule,
