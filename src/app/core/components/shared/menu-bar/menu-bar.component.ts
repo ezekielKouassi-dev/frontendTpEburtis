@@ -13,7 +13,11 @@ export class MenuBarComponent implements OnInit{
       this.items = [
         {
           label: 'Acceuil',
-          icon: ''
+          icon: 'pi pi-home'
+        },
+        {
+          label: 'Personne',
+          icon: 'pi pi-user'
         }
       ]
   }
