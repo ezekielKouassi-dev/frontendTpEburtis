@@ -18,5 +18,10 @@ export class PersonneService {
         return this.api.save(MODEL, personne);
     }
 
+    update(id: number, personne: Personne) {
+        console.log(personne);
+        return this.api.update(MODEL, id, personne);
+    }
+
 
 }

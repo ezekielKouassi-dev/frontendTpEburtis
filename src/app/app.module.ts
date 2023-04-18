@@ -8,10 +8,11 @@ import { PrimengModule } from './core/modules/shared/primeng.module';
 import { MenuBarComponent } from './core/components/shared/menu-bar/menu-bar.component';
 import { PersonneComponent } from './pages/personne/personne.component';
 import { PersonneListComponent } from './pages/personne/personne-list/personne-list.component';
-import { PersonneFormComponent } from './pages/personne/personne-form/personne-form.component';
+import { PersonneFormComponent } from './pages/personne/personne-list/personne-form/personne-form.component';
 import { AcceuilComponent } from './pages/acceuil/acceuil.component';
 import { HttpClientModule } from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PersonneUpdateFormComponent } from './pages/personne/personne-list/personne-update-form/personne-update-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PersonneComponent,
     PersonneListComponent,
     PersonneFormComponent,
-    AcceuilComponent
+    AcceuilComponent,
+    PersonneUpdateFormComponent
   ],
   imports: [
     AppRoutingModule,
@@ -28,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     PrimengModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

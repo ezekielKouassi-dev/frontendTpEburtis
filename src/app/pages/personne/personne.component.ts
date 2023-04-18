@@ -31,4 +31,11 @@ export class PersonneComponent implements OnInit {
     });
   }
 
+  update(personne: Personne) {
+    this.personneService.update(personne.id as number, new Personne(undefined, personne.nom, personne.prenoms, personne.age))
+      .subscribe((response: any) => {
+        console.log(response.message);
+      });
+  }
+
 }

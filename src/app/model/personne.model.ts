@@ -1,6 +1,3 @@
-export interface Personne {
-    id?: number,
-    nom?: string,
-    prenoms?: string,
-    age?: number
+export class Personne {
+    constructor(public id?: number, public nom?: string, public prenoms?: string, public age?: number) {}
 }

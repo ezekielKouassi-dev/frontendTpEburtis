@@ -25,7 +25,7 @@
                                 <td>{{ personne.prenoms }}</td>
                                 <td>{{ personne.age }}</td>
                                 <td>
-                                    <p-button icon="pi pi-user-edit" styleClass="p-button-warning" class="rigth-50"></p-button>
+                                    <p-button icon="pi pi-user-edit" styleClass="p-button-warning" class="rigth-50" (click)="showDialog(personne)"></p-button>
                                     &nbsp;
                                     <p-button icon="pi pi-trash" styleClass="p-button-danger"></p-button>
                                 </td>
@@ -43,4 +43,28 @@
         </div>
     </div>
 </div>
+
+<p-dialog header="Formulaire de MAJ d'un utilisateur" [(visible)]="visible" [modal]="true" [resizable]="false" [draggable]="false" [style]="{width: '50vw'}">
+    <div class="card flex justify-content-center align-items-center">
+        <form [formGroup]="form" (ngSubmit)="sendPersonneToUpdateToParent()">
+            <div class="formgrid grid">
+                <div class="field col-6">
+                    <label for="nom">Nom</label>
+                    <input id="nom" [(ngModel)]="personneSelected!.nom" type="text" formControlName="nom" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col-6">
+                    <label for="prenoms">prenoms</label>
+                    <input id="prenoms" [(ngModel)]="personneSelected!.prenoms" type="text" formControlName="prenoms" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col-12">
+                    <label for="age">Age</label>
+                    <input id="age" [(ngModel)]="personneSelected!.age" type="number" formControlName="age" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col-12">
+                    <p-button label="MAJ" styleClass="w-full p-button-success" type="Submit"></p-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</p-dialog>
 
