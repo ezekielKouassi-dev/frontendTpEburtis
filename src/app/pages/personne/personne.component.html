@@ -1,1 +1,2 @@
-<app-personne-list [personnes]="personnes" (sendPersonne)="save($event)" (sendPersonneToUpdate)="update($event)"></app-personne-list>
+<app-personne-list [personnes]="personnes" (sendPersonne)="save($event)"
+    (sendPersonneToUpdate)="update($event)" (sendPesonneIDToDelete)="delete($event)" [departements]="departements"></app-personne-list>

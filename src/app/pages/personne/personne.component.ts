@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Personne } from 'src/app/model/personne.model';
 import { PersonneService } from 'src/app/services/personne.service';
+import {DepartementService} from "../../services/departement.service";
 
 @Component({
   selector: 'app-personne',
@@ -9,10 +10,12 @@ import { PersonneService } from 'src/app/services/personne.service';
 })
 export class PersonneComponent implements OnInit {
   personnes: any[] = [];
-  constructor(private personneService: PersonneService) { }
+  departements: any;
+  constructor(private personneService: PersonneService, private departementService: DepartementService) { }
 
   ngOnInit(): void {
     this.all();
+    this.allDepartement();
   }
 
   all() {
@@ -36,6 +39,20 @@ export class PersonneComponent implements OnInit {
       .subscribe((response: any) => {
         console.log(response.message);
       });
+  }
+
+  delete(personne: Personne) {
+    // this.personneService.delete(personne.id as number).subscribe((response: any) => {
+    //   console.log(response.message);
+    // })
+    console.log(personne);
+  }
+
+  allDepartement() {
+    this.departementService.all().subscribe((response) => {
+      console.log(response);
+      this.departements = response;
+    });
   }
 
 }

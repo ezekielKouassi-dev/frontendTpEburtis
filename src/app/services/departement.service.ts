@@ -1,0 +1,1 @@
+import {Injectable} from "@angular/core";import {ApiService} from "./api.service";@Injectable({  providedIn: 'root'})export class DepartementService {  model = 'departement'  constructor(private api: ApiService) {  }  all() {    return this.api.all(this.model);  }}

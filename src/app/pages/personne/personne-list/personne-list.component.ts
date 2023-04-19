@@ -9,15 +9,17 @@ import { Personne } from 'src/app/model/personne.model';
 })
 export class PersonneListComponent implements OnInit {
   @Input() personnes?: any;
+  @Input() departements: any;
   @Output() sendPersonne = new EventEmitter<Personne>;
   @Output() sendPersonneToUpdate = new EventEmitter<Personne>;
+  @Output() sendPesonneIDToDelete = new EventEmitter<Personne>;
   loading: boolean = true;
   visible?: boolean;
   form!: FormGroup;
   personneSelected: Personne = new Personne(0, '', '', 0);
 
   constructor(private fb: FormBuilder) { }
-  
+
   ngOnInit(): void {
     this.buildReactiveForm();
   }
@@ -28,6 +30,11 @@ export class PersonneListComponent implements OnInit {
 
   sendPersonneToUpdateToParent() {
     this.sendPersonneToUpdate.emit(this.personneSelected);
+  }
+
+  sendPersonneIDToParent(personne: Personne) {
+    //this.sendPesonneIDToDelete.emit(personne);
+    console.log(personne);
   }
 
   buildReactiveForm() {
@@ -43,10 +50,7 @@ export class PersonneListComponent implements OnInit {
     this.personneSelected = personne;
   }
 
-  
-
-  
-
-
-
+  displayData(personne: Personne) {
+    console.log(personne);
+  }
 }

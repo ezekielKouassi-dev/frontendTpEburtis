@@ -19,8 +19,11 @@ export class PersonneService {
     }
 
     update(id: number, personne: Personne) {
-        console.log(personne);
         return this.api.update(MODEL, id, personne);
+    }
+
+    delete(id: number) {
+        return this.api.delete(MODEL, id);
     }
 
 

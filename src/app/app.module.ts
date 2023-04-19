@@ -8,11 +8,11 @@ import { PrimengModule } from './core/modules/shared/primeng.module';
 import { MenuBarComponent } from './core/components/shared/menu-bar/menu-bar.component';
 import { PersonneComponent } from './pages/personne/personne.component';
 import { PersonneListComponent } from './pages/personne/personne-list/personne-list.component';
-import { PersonneFormComponent } from './pages/personne/personne-list/personne-form/personne-form.component';
 import { AcceuilComponent } from './pages/acceuil/acceuil.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonneUpdateFormComponent } from './pages/personne/personne-list/personne-update-form/personne-update-form.component';
+import { PersonneFormComponent } from './pages/personne/personne-list/personne-form/personne-form.component';
 
 @NgModule({
   declarations: [

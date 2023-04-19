@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Personne } from 'src/app/model/personne.model';
 
@@ -11,6 +11,8 @@ export class PersonneFormComponent implements OnInit{
   visible?: boolean;
   form!: FormGroup;
   @Output() personneEvent = new EventEmitter<Personne>;
+  @Input() departements: any;
+  filteredDepartement: any;
 
   constructor(private fb: FormBuilder) {}
 
@@ -22,7 +24,8 @@ export class PersonneFormComponent implements OnInit{
     this.form = this.fb.group({
       nom: new FormControl('', [Validators.required]),
       prenoms: new FormControl('', [Validators.required]),
-      age: new FormControl('', [Validators.required])
+      age: new FormControl('', [Validators.required]),
+      selectedDepartement: new FormControl('', [Validators.required])
     });
   }
 
@@ -38,6 +41,13 @@ export class PersonneFormComponent implements OnInit{
 
   showDialog() {
     this.visible = true;
+  }
+
+  filterDepartement(event: any) {
+    const query = event.query; // récupérer la chaîne de caractère rentrer par l'utilisateur
+    const filtered = this.departements.filter((departement: any) => departement.designation.toLowerCase().includes(query.toLowerCase()));
+    this.filteredDepartement = filtered;
+    console.log(filtered);
   }
 
 }

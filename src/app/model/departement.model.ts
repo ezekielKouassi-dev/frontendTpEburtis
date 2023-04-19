@@ -1,0 +1,1 @@
+export class Departement {  constructor(public id: number, public code: string, public designation: string) {  }}

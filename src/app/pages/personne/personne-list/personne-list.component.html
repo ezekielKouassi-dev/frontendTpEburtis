@@ -3,19 +3,24 @@
         <div class="bg-yellow-100 w-200rem m-3 border-round">
             <p-card header="Liste des personnes">
                 <div class="flex justify-content-end">
-                    <app-personne-form (personneEvent)="sendToParent($event)"></app-personne-form>
+                    <app-personne-form (personneEvent)="sendToParent($event)" [departements]="departements"></app-personne-form>
                 </div>
-                
+
                 <p class="m-0 mt-3">
-                    <p-table [value]="personnes" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                    <p-table [value]="personnes" [paginator]="true" [rows]="3" [showCurrentPageReport]="true"
                         [tableStyle]="{ 'min-width': '50rem' }"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                        [rowsPerPageOptions]="[10, 25, 50]">
+                        [rowsPerPageOptions]="[10, 25, 50]"
+                             [globalFilterFields]="['age']">
                         <ng-template pTemplate="header">
                             <tr>
-                                <th style="width:25%">Nom</th>
+                                <th pSortableColumn="nom" style="width:25%">Nom <p-sortIcon field="nom"></p-sortIcon></th>
                                 <th style="width:25%">Prenoms</th>
-                                <th style="width:25%">Age</th>
+                                <th style="width:25%">
+                                  Age
+                                  <p-columnFilter type="number" field="age" display="menu"></p-columnFilter>
+                                </th>
+                                <th style="width:25%">Departement</th>
                                 <th style="width:25%">Action</th>
                             </tr>
                         </ng-template>
@@ -24,10 +29,11 @@
                                 <td>{{ personne.nom }}</td>
                                 <td>{{ personne.prenoms }}</td>
                                 <td>{{ personne.age }}</td>
+                                <td>{{ personne.departement.designation }}</td>
                                 <td>
                                     <p-button icon="pi pi-user-edit" styleClass="p-button-warning" class="rigth-50" (click)="showDialog(personne)"></p-button>
                                     &nbsp;
-                                    <p-button icon="pi pi-trash" styleClass="p-button-danger"></p-button>
+                                    <p-button icon="pi pi-trash" styleClass="p-button-danger" (Click)="displayData(personne)"></p-button>
                                 </td>
                             </tr>
                         </ng-template>

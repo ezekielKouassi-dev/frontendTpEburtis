@@ -1,26 +1,35 @@
 <p-button icon="pi pi-plus" styleClass="w-11rem" (click)="showDialog()"></p-button>
 
-<p-dialog header="Formulaire de création d'utilisateur" [(visible)]="visible" [modal]="true" [resizable]="false" [draggable]="false" [style]="{width: '50vw'}">
-    <div class="card flex justify-content-center align-items-center">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="formgrid grid">
-                <div class="field col-6">
-                    <label for="nom">Nom</label>
-                    <input id="nom" type="text" formControlName="nom" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-                </div>
-                <div class="field col-6">
-                    <label for="prenoms">prenoms</label>
-                    <input id="prenoms" type="text" formControlName="prenoms" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-                </div>
-                <div class="field col-12">
-                    <label for="age">Age</label>
-                    <input id="age" type="number" formControlName="age" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-                </div>
-                <div class="field col-12">
-                    <p-button label="Enregistrer" styleClass="w-full" type="Submit"></p-button>
-                </div>
-            </div>
-        </form>
-    </div>
+<p-dialog header="Formulaire de création d'utilisateur" [(visible)]="visible" [modal]="true" [resizable]="false"
+          [draggable]="false" [style]="{width: '50vw'}">
+  <div class="card flex justify-content-center align-items-center">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="formgrid grid">
+        <div class="field col-6">
+          <label for="nom">Nom</label>
+          <input id="nom" type="text" formControlName="nom"
+                 class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+        <div class="field col-6">
+          <label for="prenoms">prenoms</label>
+          <input id="prenoms" type="text" formControlName="prenoms"
+                 class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+        <div class="field col-12">
+          <label for="age">Age</label>
+          <input id="age" type="number" formControlName="age"
+                 class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+        <div class="field col-12">
+          <p-autoComplete formControlName="selectedDepartement" [dropdown]="true" placeholder="departement" [suggestions]="filteredDepartement"
+                          (completeMethod)="filterDepartement($event)" field="designation
+" styleClass="w-full"></p-autoComplete>
+        </div>
+        <div class="field col-12">
+          <p-button label="Enregistrer" styleClass="w-full" type="Submit"></p-button>
+        </div>
+      </div>
+    </form>
+  </div>
 </p-dialog>
 
