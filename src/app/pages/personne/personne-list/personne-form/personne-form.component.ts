@@ -11,7 +11,7 @@ export class PersonneFormComponent implements OnInit{
   visible?: boolean;
   form!: FormGroup;
   @Output() personneEvent = new EventEmitter<Personne>;
-  @Input() departements: any;
+  @Input() departements: any[] = [];
   filteredDepartement: any;
 
   constructor(private fb: FormBuilder) {}
@@ -25,12 +25,13 @@ export class PersonneFormComponent implements OnInit{
       nom: new FormControl('', [Validators.required]),
       prenoms: new FormControl('', [Validators.required]),
       age: new FormControl('', [Validators.required]),
-      selectedDepartement: new FormControl('', [Validators.required])
+      departement: new FormControl('', [Validators.required])
     });
   }
 
   onSubmit() {
     if(this.form.valid) {
+      console.log(this.form.value);
       this.emit(this.form.value as Personne);
     }
   }

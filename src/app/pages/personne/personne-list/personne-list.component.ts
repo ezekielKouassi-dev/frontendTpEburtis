@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Personne } from 'src/app/model/personne.model';
+import {Departement} from "../../../model/departement.model";
 
 @Component({
   selector: 'app-personne-list',
@@ -16,7 +17,7 @@ export class PersonneListComponent implements OnInit {
   loading: boolean = true;
   visible?: boolean;
   form!: FormGroup;
-  personneSelected: Personne = new Personne(0, '', '', 0);
+  personneSelected: Personne = new Personne(0, '', '', 0, new Departement(0, '', ''));
 
   constructor(private fb: FormBuilder) { }
 
@@ -29,11 +30,12 @@ export class PersonneListComponent implements OnInit {
   }
 
   sendPersonneToUpdateToParent() {
+    console.log(this.personneSelected);
     this.sendPersonneToUpdate.emit(this.personneSelected);
   }
 
   sendPersonneIDToParent(personne: Personne) {
-    //this.sendPesonneIDToDelete.emit(personne);
+    this.sendPesonneIDToDelete.emit(personne);
     console.log(personne);
   }
 
@@ -41,16 +43,13 @@ export class PersonneListComponent implements OnInit {
     this.form = this.fb.group({
       nom: new FormControl('', [Validators.required]),
       prenoms: new FormControl('', [Validators.required]),
-      age: new FormControl('', [Validators.required])
+      age: new FormControl('', [Validators.required]),
+      departement: new FormControl('', [Validators.required])
     });
   }
 
   showDialog(personne: Personne) {
     this.visible = true;
     this.personneSelected = personne;
-  }
-
-  displayData(personne: Personne) {
-    console.log(personne);
   }
 }

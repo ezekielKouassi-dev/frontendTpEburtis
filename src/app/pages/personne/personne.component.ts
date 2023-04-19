@@ -10,7 +10,7 @@ import {DepartementService} from "../../services/departement.service";
 })
 export class PersonneComponent implements OnInit {
   personnes: any[] = [];
-  departements: any;
+  departements: any[] = [];
   constructor(private personneService: PersonneService, private departementService: DepartementService) { }
 
   ngOnInit(): void {
@@ -35,16 +35,16 @@ export class PersonneComponent implements OnInit {
   }
 
   update(personne: Personne) {
-    this.personneService.update(personne.id as number, new Personne(undefined, personne.nom, personne.prenoms, personne.age))
+    this.personneService.update(personne.id as number, new Personne(undefined, personne.nom, personne.prenoms, personne.age, personne.departement))
       .subscribe((response: any) => {
         console.log(response.message);
       });
   }
 
   delete(personne: Personne) {
-    // this.personneService.delete(personne.id as number).subscribe((response: any) => {
-    //   console.log(response.message);
-    // })
+    this.personneService.delete(personne.id as number).subscribe((response: any) => {
+      console.log(response.message);
+    });
     console.log(personne);
   }
 

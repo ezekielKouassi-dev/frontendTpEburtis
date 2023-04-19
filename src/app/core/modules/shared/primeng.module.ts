@@ -6,6 +6,7 @@ import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {DialogModule} from 'primeng/dialog';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,8 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     ButtonModule,
     CardModule,
     DialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    DropdownModule
   ],
   exports: [
     MegaMenuModule,
@@ -23,7 +25,8 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     ButtonModule,
     CardModule,
     DialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    DropdownModule
   ]
 })
 export class PrimengModule {

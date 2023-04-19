@@ -24,7 +24,7 @@ export class ApiService{
     }
 
     all(model: string) {
-        return this.http.get(this.getUrl(model), {headers: this.headerHttp()});
+        return this.http.get<any[]>(this.getUrl(model), {headers: this.headerHttp()});
     }
 
     find(model: string, id: number) {
@@ -48,5 +48,5 @@ export class ApiService{
         })
     }
 
-    
+
 }
